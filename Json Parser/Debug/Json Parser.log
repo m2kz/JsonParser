@@ -1,0 +1,15 @@
+﻿Build started 2015-12-26 20:51:59.
+     1>Project "D:\Studia\MAGISTERSKIE\MPMS\Json Parser\Json Parser\Json Parser.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         D:\Software\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\\" /AI"C:\Program Files (x86)\Windows Kits\8.1\References\CommonConfiguration\Neutral" /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\\" /Zi /clr /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _UNICODE /D UNICODE /EHa /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /TP /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\mscorlib.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Data.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Drawing.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Windows.Forms.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Xml.dll" /analyze- /errorReport:prompt /clr:nostdlib jsonparser.cpp
+         jsonparser.cpp
+       Link:
+         D:\Software\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\Studia\MAGISTERSKIE\MPMS\Json Parser\Debug\Json Parser.exe" /INCREMENTAL /NOLOGO /ASSEMBLYRESOURCE:Debug\JsonParser.GUI.resources /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\Studia\MAGISTERSKIE\MPMS\Json Parser\Debug\Json Parser.pdb" /ASSEMBLYDEBUG /SUBSYSTEM:WINDOWS /TLBID:1 /ENTRY:"main" /DYNAMICBASE /FIXED:NO /NXCOMPAT /MACHINE:X86 Debug\GUI.obj
+         Debug\jsonparser.obj
+         "Debug\.NETFramework,Version=v4.5.AssemblyAttributes.obj"
+         Json Parser.vcxproj -> D:\Studia\MAGISTERSKIE\MPMS\Json Parser\Debug\Json Parser.exe
+     1>Done Building Project "D:\Studia\MAGISTERSKIE\MPMS\Json Parser\Json Parser\Json Parser.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:01.55
