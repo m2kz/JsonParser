@@ -4,11 +4,11 @@
 
 class CodeDepth;
 
-struct InterpreterStats{
+struct InterpreterStats{ //struktura przechowująca statystyki wejściowego strumienia danych
 	int nBrackets;
 };
 
-class JsonInterpreter
+class JsonInterpreter //główna klasa w programie, odpowiedzialna za parsowanie tekstu
 {
 public:
 	JsonInterpreter();
@@ -19,7 +19,7 @@ private:
 	JsonInterpreter *codeDepth;
 };
 
-class CodeDepth : public JsonInterpreter
+class CodeDepth : public JsonInterpreter //klasa odpowiedzialna za sprawdzenie głębokości zagnieżdżenia kodu
 {
 public:
 	CodeDepth(int) : JsonInterpreter(1){}
@@ -46,7 +46,7 @@ void CodeDepth::interpret(std::string strString, InterpreterStats* statistics)
 		statistics->nBrackets = 0xFFFFFFFF;
 }
 
-JsonInterpreter::JsonInterpreter()
+JsonInterpreter::JsonInterpreter() //inicjalizacja klas parsujących
 {
 	codeDepth = new CodeDepth(1);
 }
