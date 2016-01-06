@@ -1,28 +1,10 @@
-#include <iostream>
-#include <string.h>
-#include <regex>
-#include <vector>
 #include "GUI.h"
 
 class CodeDepth;
 class KeywordsList;
 
-struct InterpreterStats{
-	int nBrackets;
-	std::vector<std::string> KeywordsList;
-};
-
-class JsonInterpreter
-{
-public:
-	JsonInterpreter();
-	JsonInterpreter(int){}
-	InterpreterStats interpret(std::string strString);
-	virtual void interpret(std::string strString, InterpreterStats* statistics){};
-private:
-	JsonInterpreter *codeDepth;
-	JsonInterpreter *keywordsList;
-};
+InterpreterStats statistics = { 0 };
+JsonInterpreter interpreter;
 
 class CodeDepth : public JsonInterpreter
 {
@@ -82,7 +64,7 @@ void KeywordsList::interpret(std::string strString, InterpreterStats* statistics
 	std::regex keywordPattern("\"\\s*([^\"]*)\\s*\":");
 	std::smatch result;
 	std::string temp;
-	//std::regex_search(strString, result, keywordPattern);
+
 	for (std::sregex_iterator i = std::sregex_iterator(strString.begin(), strString.end(), keywordPattern);
 		i != std::sregex_iterator();
 		++i)
@@ -111,15 +93,13 @@ InterpreterStats JsonInterpreter::interpret(std::string strString)
 
 void main()
 {
-	JsonInterpreter interpreter;
-	std::string strString;
-	InterpreterStats statistics = { 0 };
-	strString = "\"derp\": \"herp\": \"durp\":";
+	
+	//std::string strString;
+	//strString = "\"derp\": \"herp\": \"durp\":";
+
 	System::Windows::Forms::Application::EnableVisualStyles();
 	System::Windows::Forms::Application::SetCompatibleTextRenderingDefault(false);
 	JsonParser::GUI	form;
 	System::Windows::Forms::Application::Run(%form);
-
-	statistics = interpreter.interpret(strString);
 
 }

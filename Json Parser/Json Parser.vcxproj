@@ -87,6 +87,8 @@
     <ClInclude Include="GUI.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="jsonparser.h" />
+    <ClInclude Include="misc.h" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="GUI.resx">
