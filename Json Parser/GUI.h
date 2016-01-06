@@ -161,6 +161,9 @@ namespace JsonParser {
 	}
 	private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
 
+				 textBox2->Text = "";
+				 textBox3->Text = "";
+
 				 msclr::interop::marshal_context context;
 				 std::string standardString = context.marshal_as<std::string>(textBox1->Text);
 				 statistics = interpreter.interpret(standardString);
@@ -171,8 +174,7 @@ namespace JsonParser {
 				 for (int i = 0; i < statistics.KeywordsList.size(); i++)
 				 {
 					 System::String^ keyword = gcnew System::String(statistics.KeywordsList[i].c_str());
-					 textBox3->Text += keyword;
-					 textBox3->Text += "\n";
+					 textBox3->Text += keyword + Environment::NewLine;
 				 }
 
 
