@@ -43,6 +43,7 @@ namespace JsonParser {
 	private: System::Windows::Forms::TextBox^  textBox3;
 	private: System::Windows::Forms::Label^  label2;
 	private: System::Windows::Forms::Label^  label3;
+	private: System::ComponentModel::BackgroundWorker^  backgroundWorker1;
 	protected:
 
 	protected:
@@ -67,6 +68,7 @@ namespace JsonParser {
 			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->label3 = (gcnew System::Windows::Forms::Label());
+			this->backgroundWorker1 = (gcnew System::ComponentModel::BackgroundWorker());
 			this->SuspendLayout();
 			// 
 			// przycisk
@@ -86,7 +88,8 @@ namespace JsonParser {
 			this->textBox1->Location = System::Drawing::Point(31, 35);
 			this->textBox1->Multiline = true;
 			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(194, 229);
+			this->textBox1->ScrollBars = System::Windows::Forms::ScrollBars::Vertical;
+			this->textBox1->Size = System::Drawing::Size(308, 229);
 			this->textBox1->TabIndex = 1;
 			this->textBox1->TextChanged += gcnew System::EventHandler(this, &GUI::textBox1_TextChanged);
 			// 
@@ -102,25 +105,27 @@ namespace JsonParser {
 			// 
 			// textBox2
 			// 
-			this->textBox2->Location = System::Drawing::Point(372, 35);
+			this->textBox2->Location = System::Drawing::Point(497, 41);
 			this->textBox2->Name = L"textBox2";
-			this->textBox2->Size = System::Drawing::Size(100, 20);
+			this->textBox2->Size = System::Drawing::Size(151, 20);
 			this->textBox2->TabIndex = 3;
 			this->textBox2->TextChanged += gcnew System::EventHandler(this, &GUI::textBox2_TextChanged);
 			// 
 			// textBox3
 			// 
-			this->textBox3->Location = System::Drawing::Point(372, 61);
+			this->textBox3->Location = System::Drawing::Point(497, 67);
 			this->textBox3->Multiline = true;
 			this->textBox3->Name = L"textBox3";
-			this->textBox3->Size = System::Drawing::Size(100, 120);
+			this->textBox3->ReadOnly = true;
+			this->textBox3->ScrollBars = System::Windows::Forms::ScrollBars::Vertical;
+			this->textBox3->Size = System::Drawing::Size(151, 154);
 			this->textBox3->TabIndex = 4;
 			this->textBox3->TextChanged += gcnew System::EventHandler(this, &GUI::textBox3_TextChanged);
 			// 
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(281, 38);
+			this->label2->Location = System::Drawing::Point(406, 44);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(76, 13);
 			this->label2->TabIndex = 5;
@@ -130,7 +135,7 @@ namespace JsonParser {
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(252, 64);
+			this->label3->Location = System::Drawing::Point(377, 70);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(114, 13);
 			this->label3->TabIndex = 6;
@@ -140,7 +145,7 @@ namespace JsonParser {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(658, 338);
+			this->ClientSize = System::Drawing::Size(717, 346);
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->textBox3);
@@ -182,6 +187,11 @@ namespace JsonParser {
 	}
 	private: System::Void textBox1_TextChanged(System::Object^  sender, System::EventArgs^  e) {
 
+	}
+	private: System::Void textBox1_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e)
+	{
+				 if (e->Control && (e->KeyCode == Keys::A))
+					 textBox1->SelectAll();
 	}
 	private: System::Void label1_Click(System::Object^  sender, System::EventArgs^  e) {
 	}
