@@ -141,6 +141,10 @@ namespace JsonParser {
 			this->label3->TabIndex = 6;
 			this->label3->Text = L"Lista s³ów kluczowych";
 			// 
+			// backgroundWorker1
+			// 
+			this->backgroundWorker1->DoWork += gcnew System::ComponentModel::DoWorkEventHandler(this, &GUI::backgroundWorker1_DoWork);
+			// 
 			// GUI
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -176,7 +180,7 @@ namespace JsonParser {
 				 System::String^ depthCode = System::Convert::ToString(statistics.nBrackets);
 				 textBox2->Text = depthCode;
 
-				 for (int i = 0; i < statistics.KeywordsList.size(); i++)
+				 for (unsigned int i = 0; i < statistics.KeywordsList.size(); i++)
 				 {
 					 System::String^ keyword = gcnew System::String(statistics.KeywordsList[i].c_str());
 					 textBox3->Text += keyword + Environment::NewLine;
@@ -201,5 +205,7 @@ namespace JsonParser {
 	}
 	private: System::Void textBox3_TextChanged(System::Object^  sender, System::EventArgs^  e) {
 	}
-	};
+	private: System::Void backgroundWorker1_DoWork(System::Object^  sender, System::ComponentModel::DoWorkEventArgs^  e) {
+			 }
+};
 }

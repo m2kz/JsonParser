@@ -1,9 +1,11 @@
+#ifndef MISC_H
+#define MISC_H
 #include <vector>
 
-struct InterpreterStats{
+typedef struct {
 	int nBrackets;
 	std::vector<std::string> KeywordsList;
-};
+} InterpreterStats;
 
 class JsonInterpreter
 {
@@ -16,3 +18,7 @@ private:
 	JsonInterpreter *codeDepth;
 	JsonInterpreter *keywordsList;
 };
+
+extern InterpreterStats statistics;
+extern JsonInterpreter interpreter;
+#endif

@@ -1,4 +1,8 @@
+#include <regex>
+#include <iostream>
 #include "GUI.h"
+#include "jsonparser.h"
+
 
 class CodeDepth;
 class KeywordsList;
@@ -6,14 +10,6 @@ class KeywordsList;
 InterpreterStats statistics = { 0 };
 JsonInterpreter interpreter;
 
-class CodeDepth : public JsonInterpreter
-{
-public:
-	CodeDepth(int) : JsonInterpreter(1){}
-protected:
-	void interpret(std::string strString, InterpreterStats* statistics);
-
-};
 
 void CodeDepth::interpret(std::string strString, InterpreterStats* statistics)
 {
@@ -49,19 +45,12 @@ void CodeDepth::interpret(std::string strString, InterpreterStats* statistics)
 		statistics->nBrackets = 0xFFFFFFFF;
 }
 
-class KeywordsList : public JsonInterpreter
-{
-public:
-	KeywordsList(int) : JsonInterpreter(1){}
-protected:
-	void interpret(std::string strString, InterpreterStats* statistics);
 
-};
 
 void KeywordsList::interpret(std::string strString, InterpreterStats* statistics)
 {
 	std::vector<std::string> collection;
-	std::regex keywordPattern("\"\\s*([^\"]*)\\s*\":");
+	std::regex keywordPattern("(\"\\S*\":)+\\s*(\"\\S*\")?");
 	std::smatch result;
 	std::string temp;
 
@@ -71,7 +60,8 @@ void KeywordsList::interpret(std::string strString, InterpreterStats* statistics
 	{
 		std::smatch m = *i;
 		temp = m.str();
-		temp = temp.substr(1, temp.size() - 3);
+		temp = temp.substr(1, temp.size() - 2);
+		temp.erase(std::remove(temp.begin(), temp.end(), '\"'), temp.end());
 		collection.push_back(temp);
 	}
 	statistics->KeywordsList = collection;
@@ -93,7 +83,6 @@ InterpreterStats JsonInterpreter::interpret(std::string strString)
 
 void main()
 {
-	
 	//std::string strString;
 	//strString = "\"derp\": \"herp\": \"durp\":";
 
